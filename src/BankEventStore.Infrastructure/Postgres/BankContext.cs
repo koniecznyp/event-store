@@ -8,5 +8,7 @@ namespace BankEventStore.Infrastructure.Postgres
             : base(options)
         {
         }
+
+        public DbSet<EventStore> EventStore { get; set; }
     }
 }
