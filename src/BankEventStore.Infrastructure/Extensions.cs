@@ -1,4 +1,5 @@
 ﻿using BankEventStore.Application.Commands;
+using BankEventStore.Core;
 using BankEventStore.Infrastructure.Dispatchers;
 using BankEventStore.Infrastructure.Postgres;
 using Microsoft.Extensions.Configuration;
@@ -14,6 +15,8 @@ namespace BankEventStore.Infrastructure
             services.AddCommandDispatcher();
 
             services.AddPostgresDb(configuration);
+
+            services.AddScoped<IEventStore, PostgresEventStore>();
         }
 
         private static void AddCommandHandlers(this IServiceCollection services)

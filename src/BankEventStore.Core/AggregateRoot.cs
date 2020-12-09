@@ -19,6 +19,17 @@ namespace BankEventStore.Core
 
         protected abstract void Apply<T>(T @event) where T : IEvent;
 
+        public void Load(IEnumerable<IEvent> history)
+        {
+            foreach (var e in history)
+            {
+                Apply(e);
+                Version++;
+            }
+        }
+
         protected void AddDomainEvent(IEvent @event) => events.Add(@event);
+
+        public IReadOnlyCollection<IEvent> GetDomainEvents() => events.AsReadOnly();
     }
 }

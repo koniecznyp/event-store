@@ -18,7 +18,7 @@ namespace BankEventStore.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            services.AddControllers().AddNewtonsoftJson();
             services.AddInfrastructure(Configuration);
         }
 
@@ -28,8 +28,6 @@ namespace BankEventStore.Api
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseHttpsRedirection();
 
             app.UseRouting();
 

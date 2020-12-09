@@ -1,0 +1,11 @@
+@url = https://localhost:44355
+@accountId = 00000000-0000-0000-0000-000000000001
+
+
+###
+POST {{url}}/accounts/create
+Content-Type: application/json
+
+{
+  "accountId": "{{accountId}}"
+}
