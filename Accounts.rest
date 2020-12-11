@@ -9,3 +9,23 @@ Content-Type: application/json
 {
   "accountId": "{{accountId}}"
 }
+
+
+###
+POST {{url}}/accounts/deposit
+Content-Type: application/json
+
+{
+  "accountId": "{{accountId}}",
+  "amount": 50
+}
+
+
+###
+POST {{url}}/accounts/withdraw
+Content-Type: application/json
+
+{
+  "accountId": "{{accountId}}",
+  "amount": 25
+}
